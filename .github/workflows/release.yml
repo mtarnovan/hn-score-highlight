@@ -1,18 +1,27 @@
-- name: Create Archive
-  on: [push]
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@master
+name: Create Archive
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
         with:
           type: 'zip'
           filename: 'release.zip'
-          exclusions: '*.git*
-    - name: Upload Release
+          exclusions: '*.git*'
+
+      - name: Upload Release
         uses: ncipollo/release-action@v1.12.0
         with:
           artifacts: "release.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
+          tag: "latest"  # Change this if needed
+          allowUpdates: true  # Allows updating an existing release
+          replacesArtifacts: true  # Ensures the uploaded file is replaced
