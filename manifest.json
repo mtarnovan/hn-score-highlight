@@ -3,9 +3,6 @@
   "name": "Hacker News Score Highlighter",
   "version": "1.0",
   "description": "Highlights scores on Hacker News with a gradient from red (high) to light blue (low).",
-  "icons": {
-    "48": "icon.png"
-  },
   "content_scripts": [
     {
       "matches": ["https://news.ycombinator.com/*"],
