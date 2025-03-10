@@ -6,9 +6,8 @@
         return;
     }
 
-    const points = scores.map(score => parseInt(score.textContent) || 0);
-    const maxScore = Math.max(...points);
-    const minScore = Math.min(...points);
+    const maxScore = 1500;
+    const minScore = 0;
 
     scores.forEach(score => {
         const point = parseInt(score.textContent) || 0;
